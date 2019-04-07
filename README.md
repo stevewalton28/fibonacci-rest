@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/digital-delivery-academy/fibonacci-rest.svg?branch=master)](https://travis-ci.com/digital-delivery-academy/fibonacci-rest)
+
 # fibonacci-rest
 
 We use this repository for teaching and for job interviews.  If you're here for an interview, scroll down!  
