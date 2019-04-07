@@ -1,5 +1,6 @@
 package academy.dd.fibonacci.contracttests;
 
+import academy.dd.fibonacci.jetty.EmbeddedJetty;
 import io.restassured.RestAssured;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,6 +14,16 @@ public class ContractTests {
     @Before
     public void setUp() {
         if(null == System.getenv("serviceUrl")) {
+            Runnable runnable = () -> {
+                try {
+                    new EmbeddedJetty(7003).start();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    throw new RuntimeException("Couldn't start embedded jetty server for tests");
+                }
+            };
+
+            new Thread(runnable).start();
             RestAssured.baseURI = "http://localhost:7003";
         } else {
             RestAssured.baseURI = System.getenv("serviceUrl");
