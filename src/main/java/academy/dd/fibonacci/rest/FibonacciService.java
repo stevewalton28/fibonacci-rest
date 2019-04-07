@@ -22,7 +22,7 @@ public class FibonacciService {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getStandardFibonacciSequence() throws IOException {
+    public Response getStandardFibonacciSequence() throws Exception {
         List<String> fibSeq = new ArrayList();
         for(int i = 0; i < 10; i++) {
             fibSeq.add(String.valueOf(Maths.fibonacci(i)));
@@ -34,15 +34,15 @@ public class FibonacciService {
     @GET
     @Path("/{index}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getFibonacciNumberAtGivenIndexInSequence(@PathParam("index") int index) throws IOException {
+    public Response getFibonacciNumberAtGivenIndexInSequence(@PathParam("index") int index) throws Exception {
         return Response.ok(JsonUtils.toString(Maths.fibonacci(index))).build();
     }
 
     @GET
     @Path("/range")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getFibonacciSequenceBetweenTwoIndexs(
-            @QueryParam("startIndex") int startIndex, @QueryParam("finishIndex") int finishIndex) throws IOException {
+    public Response getFibonacciSequenceBetweenTwoIndexes(
+            @QueryParam("startIndex") int startIndex, @QueryParam("finishIndex") int finishIndex) throws Exception {
         List<String> fibSeq = new ArrayList();
         for(int i = startIndex; i < finishIndex; i++) {
             fibSeq.add(String.valueOf(Maths.fibonacci(i)));

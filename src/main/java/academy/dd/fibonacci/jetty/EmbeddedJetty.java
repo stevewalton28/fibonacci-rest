@@ -27,11 +27,7 @@ public class EmbeddedJetty {
         ServletContextHandler restContext = new ServletContextHandler(jettyServer, "/*");
         restContext.addServlet(restServlet, "/*");
 
-        try {
-            jettyServer.start();
-            jettyServer.join();
-        } finally {
-            jettyServer.stop();
-        }
+        jettyServer.start();
+        jettyServer.join();
     }
 }
