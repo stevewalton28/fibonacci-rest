@@ -19,7 +19,7 @@ public class ContractTests {
                     new EmbeddedJetty(7003).start();
                 } catch (Exception e) {
                     e.printStackTrace();
-                    throw new RuntimeException("Couldn't start embedded jetty server for tests");
+                    throw new RuntimeException("Couldn't start embedded jetty server for test");
                 }
             };
 
